@@ -44,65 +44,26 @@ export default function Chatbot() {
     scrollToBottom()
   }, [messages])
 
-  const getBotResponse = (userMessage: string): string => {
-    const message = userMessage.toLowerCase()
+  const getBotResponse = async (userMessage: string): Promise<string> => {
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: userMessage }),
+      })
 
-    if (message.includes("project") || message.includes("work") || message.includes("portfolio")) {
-      return "🚀 Anant has built some amazing projects! Here are the highlights:\n\n• AI-Driven Portfolio Chatbot - Intelligent conversational AI with NLP capabilities\n• Code Review AI - Automates feedback and bug detection using ML\n• Smart Task Management App - AI-enhanced productivity with pattern learning\n• Secure Audit Log System (BlockLog) - Immutable digital log tracker using Web3 principles\n\nEach project reflects a balance of design, engineering, and problem-solving. Which project interests you most?"
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`)
+      }
+
+      const data = await response.json()
+      return data.response || "Sorry, I couldn't process that. Could you try asking something else?"
+    } catch (error) {
+      console.error("Error getting bot response:", error)
+      return "Sorry, I'm having trouble connecting right now. Please try again in a moment."
     }
-
-    if (message.includes("skill") || message.includes("technology") || message.includes("tech")) {
-      return "💻 Anant's technical expertise spans multiple domains:\n\nLanguages & Frameworks:\n• JavaScript / TypeScript\n• React / Next.js\n• Node.js\n• Python\n\nSpecialties:\n• Full-Stack Development\n• AI and Machine Learning\n• Web3 and Decentralized Apps\n• Ethical Hacking and Cybersecurity\n\nA strong believer in learning by building and shipping."
-    }
-
-    if (
-      message.includes("contact") ||
-      message.includes("reach") ||
-      message.includes("email") ||
-      message.includes("phone")
-    ) {
-      return "📞 Here's how you can reach Anant:\n\n• Email:anantguptaa1608@gmail.com\n• Phone: +91 8240479245\n• Location: West Bengal, India, CA\n\nSocial Media:\n• LinkedIn, GitHub, Twitter, Instagram, Discord\n\nYou can also scroll down to the 'Let's Connect' section for direct links to all his social profiles!"
-    }
-
-    if (
-      message.includes("ai") ||
-      message.includes("artificial intelligence") ||
-      message.includes("machine learning") ||
-      message.includes("ml")
-    ) {
-      return "🤖 Anant has extensive AI/ML experience:\n\n• Actively exploring AI applications:\n\n• Created intelligent assistants and automation tools\n• Built ML pipelines for real-world use cases\n• Familiar with NLP, TensorFlow, Scikit-learn, OpenCV\n\nPassionate about blending AI with problem-solving in defense, sustainability, and education."
-
-    }
-
-    if (
-      message.includes("education") ||
-      message.includes("study") ||
-      message.includes("degree") ||
-      message.includes("university")
-    ) {
-      return "🎓 Anant is Pursuing a degree in Computer Science & Engineering with focused interest in Artificial Intelligence, System Design, and Cybersecurity. Currently engaged in hands-on learning, internships, and open-source projects."
-
-    }
-
-    if (
-      message.includes("experience") ||
-      message.includes("career") ||
-      message.includes("job") ||
-      message.includes("work history")
-    ) {
-      return "💼 Anant is a dedicated full-stack developer with expertise.\n\n• Gaining experience through internships, research projects, and independent development work. Involved in building full-stack applications and AI systems. Strong foundation in software architecture, backend systems, and UI design with real-world exposure."
-    }
-
-    if (message.includes("hello") || message.includes("hi") || message.includes("hey")) {
-      return "👋 Hello! Nice to meet you. I'm here to help you learn more about Anant Gupta - his projects, skills, and experience. What would you like to know? You can ask me anything or use the quick reply buttons below!"
-    }
-
-    if (message.includes("thank") || message.includes("thanks")) {
-      return "😊 You're very welcome! I'm glad I could help. Let me know if you want to explore more about the work or skills!"
-    }
-
-    // Default response
-    return "🤔 That's an interesting question! I'd love to help you learn more about Anant. You can ask about:\n\n• Projects and portfolio\n• Technical skills\n• AI/ML work\n• Contact details\n• Education background\n• Career journey\n\nWhat would you like to explore?"
   }
 
   const simulateTyping = (callback: () => void, delay = 1500) => {
@@ -113,7 +74,7 @@ export default function Chatbot() {
     }, delay)
   }
 
-  const handleSendMessage = (message?: string) => {
+  const handleSendMessage = async (message?: string) => {
     const messageText = message || inputMessage.trim()
     if (!messageText) return
 
@@ -128,16 +89,31 @@ export default function Chatbot() {
     setMessages((prev) => [...prev, userMessage])
     setInputMessage("")
 
-    // Simulate bot typing and response
-    simulateTyping(() => {
+    // Show typing indicator and get AI response
+    setIsTyping(true)
+
+    try {
+      const botResponseText = await getBotResponse(messageText)
+
+      setIsTyping(false)
+
       const botResponse: Message = {
         id: Date.now() + 1,
-        text: getBotResponse(messageText),
+        text: botResponseText,
         isBot: true,
         timestamp: new Date(),
       }
       setMessages((prev) => [...prev, botResponse])
-    })
+    } catch (error) {
+      setIsTyping(false)
+      const errorResponse: Message = {
+        id: Date.now() + 1,
+        text: "Sorry, I'm having trouble connecting right now. Please try again in a moment.",
+        isBot: true,
+        timestamp: new Date(),
+      }
+      setMessages((prev) => [...prev, errorResponse])
+    }
   }
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -176,10 +152,9 @@ export default function Chatbot() {
             <div>
               <h3 className="font-semibold">Anant's AI Assistant</h3>
               <div className="text-xs opacity-90 flex items-center gap-1">
-  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-  <span>Online • Ready to help</span>
-</div>
-
+                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                <span>Online • Ready to help</span>
+              </div>
             </div>
           </div>
           <div className="flex space-x-2">
@@ -261,7 +236,6 @@ export default function Chatbot() {
             {/* Quick Replies */}
             <div className="px-5 pb-3 pt-3 bg-white dark:bg-gray-900">
               <div className="flex flex-wrap gap-2 max-h-20 overflow-y-auto pr-1">
-
                 {quickReplies.map((reply) => (
                   <button
                     key={reply}

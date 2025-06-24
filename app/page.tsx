@@ -397,7 +397,7 @@ export default function Portfolio() {
                 company: "Phantom Breach CTF",
                 period: "April 2025",
                 description:
-                  "Secured 3rd place in a national-level CTF event by solving complex cryptography, reverse engineering, and web security challenges with a focus on real-world threat simulation.",
+                  "Secured 3rd place in Phantom Breach CTF event by solving complex cryptography, reverse engineering, and web security challenges with a focus on real-world threat simulation.",
               },
             ].map((job, index) => (
               <motion.div

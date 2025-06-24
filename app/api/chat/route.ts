@@ -1,50 +1,56 @@
 import { type NextRequest, NextResponse } from "next/server"
 
-const GEMINI_API_KEY = ""
+const GEMINI_API_KEY = "AIzaSyAGPsxwOl8Qgg4CJ0oxjthu21knVEZ21kU"
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`
 
 const myDescription = `
-I am Anant Gupta, a CSE student, AI enthusiast, and aspiring full-stack developer passionate about exploring how emerging technologies can drive impactful solutions across defense, aerospace, and sustainable innovation.
+I am Anant Gupta, a CSE student at Sister Nivedita University with a deep interest in AI, full-stack development, and cybersecurity. I'm passionate about harnessing emerging technologies to build meaningful solutions in defense, aerospace, and sustainable innovation.
 
 My expertise includes:
 
-- Ethical hacking and cybersecurity fundamentals
+Ethical hacking and cybersecurity fundamentals
 
-- Full-stack development with React, TypeScript, TailwindCSS
+Full-stack development with React, TypeScript, TailwindCSS
 
-- AI and machine learning using Python
+AI and machine learning using Python
 
-- Web3 concepts and decentralized systems
+Web3 concepts and decentralized systems
 
-- System-level builds with Raspberry Pi, Linux, Git, and beginner AWS skills
+System-level builds using Raspberry Pi, Linux, Git, and beginner AWS
 
-Current Experience:
+Recent Achievements:
 
-- AI Intern at AI Wallah (2025 - Present)
+Secured 3rd place at Phantom Breach CTF (2025)
 
-- Web3 Bootcamp Participant - Kleros Web3 Essentials
+AI Intern at AI Wallah
 
-- Certificate Course - IIRS Dehradun
+Participant in Kleros Web3 Essentials Bootcamp
 
-- Hackathon Contributor - Tech and Sustainability Themes
+Completed a certificate course at IIRS Dehradun
 
-- Active Participant in GeeksforGeeks and campus tech events
+Contributor in hackathons focused on tech and sustainability
+
+Active in GeeksforGeeks and campus tech communities
 
 Key Projects:
 
-- Personal NAS using Raspberry Pi and OpenMediaVault
+Personal NAS using Raspberry Pi and OpenMediaVault
 
-- BlockLog - Web3 Immutable Audit Log System
+BlockLog - Web3 Immutable Audit Log System
 
-- Portfolio website with chatbot, toggles, and smooth UI
+Portfolio website with integrated chatbot, UI toggles, and smooth UX
 
-- AI Assistant (JARVIS-inspired) with no prebuilt models
+AI Assistant (JARVIS-inspired) with no prebuilt models
 
-- This Day in History - Ongoing web application project
+This Day in History - Ongoing educational web app
 
-Academic Focus:
+Academic Focus Areas:
 
-- Data Structures, Algorithms, OOP, Automata Theory, Computer Architecture
+Data Structures, Algorithms, Object-Oriented Programming
+
+Formal Language and Automata Theory
+
+Computer Architecture
 
 Contact: anantguptaa1608@gmail.com
 Social: LinkedIn, GitHub, Twitter, Instagram, Discord
