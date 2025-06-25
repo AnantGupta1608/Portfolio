@@ -91,7 +91,7 @@ export default function Portfolio() {
       tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Node.js", "Express", "MongoDB"],
       github: "https://github.com/your-username/smartpaisa", // replace with actual
       demo: "https://smartpaisa.vercel.app", // replace with actual
-      image: "/images/smartPaisa.png", // update this with actual image path
+      image: "/images/SmartPaisa.png", // update this with actual image path
     },
     {
       title: "AI Portfolio",
