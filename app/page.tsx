@@ -349,7 +349,7 @@ export default function Portfolio() {
                 onClick={() => {
                   // Create a download link for the resume
                   const link = document.createElement("a")
-                  link.href = "/Sample Resume.pdf" // You'll need to add your resume PDF to the public folder
+                  link.href = "/Anant Gupta Resume.pdf" // You'll need to add your resume PDF to the public folder
                   link.download = "Anant Gupta Resume.pdf"
                   link.click()
                 }}
