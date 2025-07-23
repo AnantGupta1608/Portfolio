@@ -10,7 +10,7 @@ My expertise includes:
 
 Ethical hacking and cybersecurity fundamentals
 
-Full-stack development with React, TypeScript, TailwindCSS
+Full-stack development with React, Javascript, TailwindCSS
 
 AI and machine learning using Python
 
