@@ -85,6 +85,15 @@ export default function Portfolio() {
  const projects = useMemo(
   () => [
     {
+      title: "Weather App",
+      description:
+        "An AI powered weather application that provides real-time weather updates, forecasts, and alerts. Features include location-based weather tracking, interactive maps, and personalized notifications.",
+      tech: ["HTML","Javascript", "CSS",],
+      github: "https://github.com/AnantGupta1608/weather_app", // replace with actual
+      demo: "https://ai-weather-app06.vercel.app/", // replace with actual
+      image: "/images/Weather.png", // update this with actual image path
+    },
+    {
       title: "SmartPaisa",
       description:
         "A financial fraud detection tool designed to track suspicious digital activities and promote secure online transactions. Features real-time alerts, pattern recognition, and privacy-first architecture.",
@@ -97,7 +106,7 @@ export default function Portfolio() {
       title: "AI Portfolio",
       description:
         "A personal AI-powered developer portfolio featuring animated sections, a dark cyberpunk theme, project showcases, and an embedded intelligent chatbot assistant built from scratch.",
-      tech: ["React", "Tailwind CSS", "Framer Motion", "Vite", "OpenAI API"],
+      tech: ["React", "Tailwind CSS", "Framer Motion", "Vite", "GEMINI API"],
       github: "https://github.com/your-username/ai-portfolio", // replace with actual
       demo: "https://your-portfolio.vercel.app", // replace with actual
       image: "/images/AiPortfolio.png", // update this with actual image path
