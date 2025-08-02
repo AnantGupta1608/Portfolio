@@ -102,15 +102,6 @@ export default function Portfolio() {
       demo: "https://smartpaisa.vercel.app", // replace with actual
       image: "/images/SmartPaisa.png", // update this with actual image path
     },
-    {
-      title: "AI Portfolio",
-      description:
-        "A personal AI-powered developer portfolio featuring animated sections, a dark cyberpunk theme, project showcases, and an embedded intelligent chatbot assistant built from scratch.",
-      tech: ["React", "Tailwind CSS", "Framer Motion", "Vite", "GEMINI API"],
-      github: "https://github.com/your-username/ai-portfolio", // replace with actual
-      demo: "https://your-portfolio.vercel.app", // replace with actual
-      image: "/images/AiPortfolio.png", // update this with actual image path
-    },
   ],
   [],
 );
@@ -118,14 +109,14 @@ export default function Portfolio() {
 
   const skills = useMemo(
     () => [
-      { name: "Python", level: 90 },
-      { name: "JavaScript/TypeScript", level: 85 },
-      { name: "React/Next.js", level: 88 },
-      { name: "Machine Learning", level: 82 },
-      { name: "TensorFlow/PyTorch", level: 78 },
+      { name: "Linux Scripting", level: 90 },
+      { name: "JavaScript/TypeScript", level: 55 },
+      { name: "Next.js", level: 40 },
+      { name: "Machine Learning", level: 35 },
+      { name: "React", level: 55 },
       { name: "Node.js", level: 80 },
       { name: "AWS/Cloud", level: 75 },
-      { name: "Docker", level: 70 },
+      { name: "Windows Scripting", level: 70 },
     ],
     [],
   )
