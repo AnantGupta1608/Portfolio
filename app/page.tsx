@@ -85,6 +85,15 @@ export default function Portfolio() {
  const projects = useMemo(
   () => [
     {
+      title: "MindfulBite",
+      description:
+        "An AI powered calorie tracker that helps users maintain a balanced diet by analyzing food intake. Features include real-time tracking and nutritional insights.",
+      tech: ["HTML","Javascript", "CSS","Groq API","IMGBB API"],
+      github: "https://github.com/AnantGupta1608/Mindfulbite", // replace with actual
+      demo: "https://mindfulbite.vercel.app/", // replace with actual
+      image: "/images/Mindfulbite.png", // update this with actual image path
+    },
+    {
       title: "Weather App",
       description:
         "An AI powered weather application that provides real-time weather updates, forecasts, and alerts. Features include location-based weather tracking, interactive maps, and personalized notifications.",
