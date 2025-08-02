@@ -97,7 +97,7 @@ export default function Portfolio() {
       title: "Weather App",
       description:
         "An AI powered weather application that provides real-time weather updates, forecasts, and alerts. Features include location-based weather tracking, interactive maps, and personalized notifications.",
-      tech: ["HTML","Javascript", "CSS",],
+      tech: ["HTML","Javascript", "CSS","GEMINI API","OpenWeatherMap API","Unsplash API"],
       github: "https://github.com/AnantGupta1608/weather_app", // replace with actual
       demo: "https://ai-weather-app06.vercel.app/", // replace with actual
       image: "/images/Weather.png", // update this with actual image path
